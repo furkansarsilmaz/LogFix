@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<div>
+    <H1> LogFix </H1> 
+</div>
+{% endblock %}
+
+{% block body %} 
+    <div class="upload-container">
+        <h2>Log Dosyası Analiz Aracı</h2>
+        <form id="uploadForm">
+            <input type="file" id="logFile" accept=".log,.txt">
+            <br>
+            <button type="submit">Analiz Et</button>
+        </form>
+    </div>
+{% endblock %}
