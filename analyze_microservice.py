@@ -12,6 +12,7 @@ def log_analyze_service():
             report.append(decoded_line)
 
         return jsonify({"status":"success","report":report})
+    
     return jsonify({"status":"failed","message":"there is no file"})
 
 if __name__ == "__main__" :
