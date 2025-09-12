@@ -1,4 +1,5 @@
-from flask import Flask,render_template,url_for
+from flask import Flask,render_template,url_for,request
+import requests
 
 app = Flask(__name__)
 
@@ -18,11 +19,11 @@ def selam():
 
 @app.route("/analyze_as_log",methods=["POST"])
 def analyze():
-    """
-    algorithm for analyzing at log level
-    """
-    return "<p> WORKIN </p>"
-
+    file = request.files.get("logFile")
+    if file:
+        response = requests.post("http://127.0.0.1:5000/analyze_as_log",files=file)
+        return response.text
+    return "Dosya seçilmedi"
 
 
 #functions for analyzing with date
