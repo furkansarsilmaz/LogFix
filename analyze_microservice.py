@@ -4,10 +4,15 @@ app = Flask(__name__)
 
 @app.route("/analyze_as_log",methods=["POST"])
 def log_analyze_service():
-    file = request.file.get("logFile")
+    file = request.files.get("logFile")
     if file:
-        return jsonify({"status":"success","message":"working"})
+        report = []
+        for line in file.stream:
+            decoded_line = line.decode('utf-8').strip()
+            report.append(decoded_line)
+
+        return jsonify({"status":"success","report":report})
     return jsonify({"status":"failed","message":"there is no file"})
 
-if "__name__" == "__main__" :
-    app.run()
+if __name__ == "__main__" :
+    app.run(port=5001)

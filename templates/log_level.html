@@ -8,8 +8,8 @@
 
 {% block body %}
     <div class="upload-container">
-        <form id="uploadForm" action="/analyze_as_log" method="POST">
-            <input type="file" id="logFile" accept=".log,.txt,.pdf">
+        <form id="uploadForm" action="/analyze_as_log" method="POST" enctype="multipart/form-data">
+            <input type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf">
             <br>
             <button type="submit">Analyze</button>
         </form>

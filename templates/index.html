@@ -13,7 +13,7 @@
     <div class="upload-container">
         <h2>Log Dosyası Analiz Aracı</h2>
         <form id="uploadForm" action="/log_level_page" method="POST">
-            <input type="file" id="logFile" accept=".log,.txt,.pdf">
+            <input type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf" enctype="multipart/form-data">
             <br>
             <button type="submit">Log Level</button>
         </form>
