@@ -1,4 +1,5 @@
 from flask import Flask,jsonify,request
+import sqlite3
 
 app = Flask(__name__)
 
@@ -11,6 +12,7 @@ def log_analyze_service():
             decoded_line = line.decode('utf-8').strip()
             report.append(decoded_line)
 
+        
         return jsonify({"status":"success","report":report})
     
     return jsonify({"status":"failed","message":"there is no file"})

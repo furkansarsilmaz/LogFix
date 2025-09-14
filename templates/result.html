@@ -29,6 +29,12 @@
           {% endfor %}
         </tbody>
       </table>
+      <form action="/saved" method="post" enctype="multipart/form-data">
+        {% for line in report %}
+          <input type="hidden" name="report" value="{{ line }}">
+        {% endfor %}
+        <button type="submit" class="btn btn-primary" action>Save</button>
+      </form>
     {% else %}
       <div class="alert alert-danger">No file found ❌</div>
     {% endif %}
