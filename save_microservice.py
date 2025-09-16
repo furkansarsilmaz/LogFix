@@ -10,7 +10,6 @@ def saved():
     with open ("reports.txt","w") as file:
         for line in report:
             file.write(line + "\n")
-    return "<p> SAVED </p>"
 
 
 

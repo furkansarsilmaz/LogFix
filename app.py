@@ -44,7 +44,7 @@ def saved():
     # throws a post request to the microservice
     report = request.form.getlist("report")
     response = requests.post("http://127.0.0.1:5002/saved",json={"report":report})
-    return response.text
+    return render_template("saved.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
