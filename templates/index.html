@@ -1,24 +1,23 @@
 {% extends 'base.html' %}
 
 {% block head %} 
-<div>
-    <H1> LogFix </H1> 
-</div>
 {% endblock %}
 
 
 
 
-{% block body %} 
-    <div class="upload-container">
-        <h2>Log Dosyası Analiz Aracı</h2>
-        <form id="uploadForm" action="/log_level_page" method="POST">
-            <button type="submit">Log Level</button>
-        </form>
-        <form action="/date_level_page" method="POST">
-            <button type="submit">Date based</button>
-            <br>
-        </form>
-            <button type="submit">Keyword based</button>
-    </div>
+{% block body %}
+    <main>
+        <div class="container-md text-center">
+            <h1 class="h3 mb-3 fw-normal">LogFix ⚙️ </h1>
+            <form id="uploadForm" action="/log_level_page" method="POST">
+                <button class="btn btn-lg btn-secondary my-2"  type="submit">Log Level</button>
+            </form>
+            <form action="/date_level_page" method="POST">
+                <button class="btn btn-lg btn-secondary my-2"  type="submit">Date based</button>
+                <br>
+            </form>
+                <button class="btn btn-lg btn-secondary my-2" type="submit">Keyword based</button>
+        </div>
+    </main>
 {% endblock %}

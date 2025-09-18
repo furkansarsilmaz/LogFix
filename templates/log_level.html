@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<div>
-    <h2> Log Based Search</h2>
-</div>
+    <h1 class="h3 mb-3 fw-normal text-center py-5"> 
+        LogFix ⚙️ 
+    </h1>
 {% endblock %}
 
 {% block body %}
-    <div class="upload-container">
+    <div class="container-md text-center">
         <form id="uploadForm" action="/analyze_as_log" method="POST" enctype="multipart/form-data">
-            <input type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf">
-            <br>
-            <button type="submit">Analyze</button>
+            <div class="mb-3">
+                <label for="logFile" class="form-label"> Choose a file </label>
+                <input class="form-control" type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf">
+            </div>
+            <button class="btn btn-lg btn-secondary" type="submit">Analyze</button>
         </form>
     </div>
 {% endblock %}
