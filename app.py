@@ -24,8 +24,13 @@ def analyze():
         files = {'logFile': (file.filename, file.stream, file.mimetype)}
         response = requests.post("http://127.0.0.1:5001/analyze_as_log",files=files)
 
-        data = response.json()
-        return render_template("result.html",status=data.get("status"),report=data.get("report"))
+        try:
+            data = response.json()
+            return render_template("result.html",status=data.get("status"),report=data.get("report"))
+        
+        except ValueError:
+            print("JSON Error",response.text)
+
     return "Dosya seçilmedi"
 
 

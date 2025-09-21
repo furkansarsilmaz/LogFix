@@ -9,8 +9,14 @@ def log_analyze_service():
     if file:
         report = []
         for line in file.stream:
-            decoded_line = line.decode('utf-8').strip()
-            report.append(decoded_line)
+            decoded_line = line.decode('utf-8').lower.strip()
+            if ("error" in decoded_line) :
+                starter_index = decoded_line.index("error")
+                report.append(decoded_line[starter_index:])
+            
+            elif ("warning" in decoded_line):
+                starter_index = decoded_line.index("warning") 
+                report.append(decoded_line[starter_index:])
 
         
         return jsonify({"status":"success","report":report})
