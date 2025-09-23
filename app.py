@@ -41,7 +41,16 @@ def analyze_date_page():
 
 @app.route("/analyze_as_date",methods=["POST"])
 def analyze_date():
-    return "<p> ANALYZING WITH DATE </p>"
+    file = request.files.get("logFile")
+    if file:
+        files = {'logFile':(file.filename,file.stream,file.mimetype)}
+        response = requests.post("http://127.0.0.1:5003/analyze_as_date",files=files)
+
+        data = response.json()
+        return render_template("result.html",status=data.get("status"),message=data.get("message"))
+    
+    
+    return "Dosya seçilmedi"
 
 
 @app.route("/saved",methods=["POST"])

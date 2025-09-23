@@ -1,5 +1,4 @@
 from flask import Flask,jsonify,request
-import sqlite3
 
 app = Flask(__name__)
 
@@ -9,7 +8,7 @@ def log_analyze_service():
     if file:
         report = []
         for line in file.stream:
-            decoded_line = line.decode('utf-8').lower.strip()
+            decoded_line = line.decode('utf-8').lower().strip()
             if ("error" in decoded_line) :
                 starter_index = decoded_line.index("error")
                 report.append(decoded_line[starter_index:])

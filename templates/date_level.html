@@ -9,14 +9,23 @@
 {% endblock %}
 
 {% block body %}
-<div class="container-md text-center">
-    <form id="uploadForm" action="/analyze_as_date" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="logFile" class="form-label"> Choose a File</label>
-            <input class="form-control" type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf">
-            <br>
-        </div>
-        <button class="btn btn-lg btn-secondary" type="submit">Analyze</button>
-    </form>
+<div class="container-md d-flex justify-content-center">
+    <div class="p-4 bg-light border rounded shadow-sm" style="max-width: 600px; width: 100%;">
+        <form id="uploadForm" action="/analyze_as_date" method="POST" enctype="multipart/form-data">
+            <div class="mb-3 text-start">
+                <label for="logFile" class="form-label"> Choose a File</label>
+                <input class="form-control" type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf">
+                <br>
+            </div>
+            <div class="mb-3 text-start">
+                <label for="User_Input"> Enter the date </label>
+                <input type="text" class="form-control" id="User_Input" name="User_Input">
+                <div id="inputHelp" class="form-text">Format is YYYY-MM-DD </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-lg btn-secondary" type="submit">Analyze</button>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}
