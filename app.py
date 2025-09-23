@@ -34,7 +34,7 @@ def analyze():
     return "Dosya seçilmedi"
 
 
-#functions for analyzing with date
+############################################################# functions for analyzing with date
 @app.route("/date_level_page",methods=["POST"])
 def analyze_date_page():
     return render_template("date_level.html")
@@ -42,16 +42,17 @@ def analyze_date_page():
 @app.route("/analyze_as_date",methods=["POST"])
 def analyze_date():
     file = request.files.get("logFile")
-    if file:
+    user_input = request.form.get("User_Input")
+    if file and user_input :
         files = {'logFile':(file.filename,file.stream,file.mimetype)}
-        response = requests.post("http://127.0.0.1:5003/analyze_as_date",files=files)
+        data = {'User_Input':user_input}
+        response = requests.post("http://127.0.0.1:5003/analyze_as_date",files=files,data=data)
 
         data = response.json()
-        return render_template("result.html",status=data.get("status"),message=data.get("message"))
-    
+        return render_template("result.html",status=data.get("status"),report=data.get("message"))
     
     return "Dosya seçilmedi"
-
+#########################################################################################################
 
 @app.route("/saved",methods=["POST"])
 def saved():
