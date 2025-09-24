@@ -8,7 +8,7 @@ def hello_world():
     return render_template("index.html")
 
 
-# functions for analyzing as log level
+############################################################################## functions for analyzing as log level
 @app.route("/log_level_page", methods=["POST"])
 def selam():
     """

@@ -8,16 +8,18 @@
 
 {% block body %}
     <main>
-        <div class="container-md text-center">
-            <h1 class="h3 mb-3 fw-normal">LogFix ⚙️ </h1>
-            <form id="uploadForm" action="/log_level_page" method="POST">
-                <button class="btn btn-lg btn-secondary my-2"  type="submit">Log Level</button>
-            </form>
-            <form action="/date_level_page" method="POST">
-                <button class="btn btn-lg btn-secondary my-2"  type="submit">Date based</button>
-                <br>
-            </form>
-                <button class="btn btn-lg btn-secondary my-2" type="submit">Keyword based</button>
+        <div class="container-md d-flex justify-content-center mt-5">
+            <div class="p-5 bg-light border rounded shadow-lg" style="max-width: 600px; width: 100%;">
+                <h1 class="h3 mb-3 fw-normal">LogFix ⚙️ </h1>
+                <form id="uploadForm" action="/log_level_page" method="POST">
+                    <button class="btn btn-lg btn-secondary my-2"  type="submit">Log Level</button>
+                </form>
+                <form action="/date_level_page" method="POST">
+                    <button class="btn btn-lg btn-secondary my-2"  type="submit">Date based</button>
+                    <br>
+                </form>
+                    <button class="btn btn-lg btn-secondary my-2" type="submit">Keyword based</button>
+            </div>
         </div>
     </main>
 {% endblock %}
