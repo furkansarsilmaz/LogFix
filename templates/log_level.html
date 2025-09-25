@@ -7,13 +7,15 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container-md text-center">
-        <form id="uploadForm" action="/analyze_as_log" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="logFile" class="form-label"> Choose a file </label>
-                <input class="form-control" type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf">
-            </div>
-            <button class="btn btn-lg btn-secondary" type="submit">Analyze</button>
-        </form>
+    <div class="container-md d-flex text-center mt-5">
+        <div class="p5 bg-lights border rounded shadow-lg" style="max-width: 600px; width: 100%;">
+            <form id="uploadForm" action="/analyze_as_log" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="logFile" class="form-label"> Choose a file </label>
+                    <input class="form-control" type="file" id="logFile" name="logFile" accept=".log,.txt,.pdf">
+                </div>
+                <button class="btn btn-lg btn-secondary" type="submit">Analyze</button>
+            </form>
+        </div>
     </div>
 {% endblock %}
