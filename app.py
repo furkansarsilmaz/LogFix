@@ -53,6 +53,23 @@ def analyze_date():
     
     return "Dosya seçilmedi"
 #########################################################################################################
+############################################################# functions for analyzing with string input
+
+@app.route("/analyze_as_keyword",methods=["POST"])
+def keyword():
+    return render_template("keyword.html")
+
+
+
+
+
+
+
+
+
+
+
+#########################################################################################################
 
 @app.route("/saved",methods=["POST"])
 def saved():
